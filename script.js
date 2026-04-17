@@ -72,6 +72,19 @@ function checkAnswer(answer)
 {
     if(answer===questions[Qindex].correct)
         score++;
+    document.getElementById("options").querySelectorAll("button").forEach(function(btn){
+        if(btn.textContent===questions[Qindex].correct)
+        {
+            btn.style.background="green";
+            btn.style.color="white";
+        }
+        else
+        {
+            btn.style.background="red";
+            btn.style.color="white";
+        }
+        btn.disabled=true;
+    })
     document.getElementById("next-btn").style.display="block";
 }
 loadQuestion();
