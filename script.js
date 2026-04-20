@@ -67,6 +67,7 @@ function loadQuestion()
         opt.appendChild(btn);
         btn.onclick= function() {checkAnswer(btn.textContent)};
     })
+
 }
 function checkAnswer(answer)
 {
@@ -85,6 +86,30 @@ function checkAnswer(answer)
         }
         btn.disabled=true;
     })
-    document.getElementById("next-btn").style.display="block";
+    if(Qindex<10)
+    {
+        document.getElementById("next-btn").style.display="block";
+        document.getElementById("next-btn").onclick = function () {nextone()};
+    }
+    
+    
+}
+function nextone()
+{
+    Qindex++;
+    if(Qindex>=10)
+    {
+        document.getElementById("Question").innerHTML="";
+        document.getElementById("options").innerHTML="";
+        document.getElementById("next-btn").style.display="none";
+        document.getElementById("result").style.display="block";
+        document.getElementById("result").textContent=`${score}/10`; 
+    }
+    else
+    {
+    document.getElementById("next-btn").style.display="none";
+    loadQuestion();
+    }
+    
 }
 loadQuestion();
