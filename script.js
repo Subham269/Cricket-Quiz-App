@@ -57,6 +57,8 @@ let questions = [{
 }];
 function loadQuestion()
 {
+    document.getElementById("restart").style.display="none";
+    timeLeft=30;
     let ques=document.getElementById("Question");
     ques.textContent=questions[Qindex].question;
     let opt=document.getElementById("options");
@@ -67,10 +69,11 @@ function loadQuestion()
         opt.appendChild(btn);
         btn.onclick= function() {checkAnswer(btn.textContent)};
     })
-
+    startTimer();
 }
 function checkAnswer(answer)
 {
+    clearInterval(timeInterval);
     if(answer===questions[Qindex].correct)
         score++;
     document.getElementById("options").querySelectorAll("button").forEach(function(btn){
@@ -92,7 +95,6 @@ function checkAnswer(answer)
         document.getElementById("next-btn").onclick = function () {nextone()};
     }
     
-    
 }
 function nextone()
 {
@@ -103,7 +105,8 @@ function nextone()
         document.getElementById("options").innerHTML="";
         document.getElementById("next-btn").style.display="none";
         document.getElementById("result").style.display="block";
-        document.getElementById("result").textContent=`${score}/10`; 
+        document.getElementById("result").textContent=`${score}/10`;
+        document.getElementById("restart").style.display="block";
     }
     else
     {
@@ -111,5 +114,26 @@ function nextone()
     loadQuestion();
     }
     
+}
+function startTimer()
+{
+        timeInterval=setInterval(function() {
+        timeLeft--;
+        document.getElementById("timer").textContent=timeLeft;
+        if(timeLeft<=0)
+        {
+            clearInterval(timeInterval);
+            nextone();
+        }
+            
+    },1000);
+}
+function restart()
+{
+    timeInterval=null;
+    timeLeft=30;
+    score=0;
+    Qindex=0;
+    loadQuestion();
 }
 loadQuestion();
