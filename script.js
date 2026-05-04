@@ -26,7 +26,7 @@ let questions = [{
     correct : "Bruce Taylor"
 },
 {
-    question : "Which cricketer was involved in the famous “Mankading” dismissal of Jos Buttler in IPL 2019?",
+    question : "Which cricketer was involved in the famous `Mankading` dismissal of Jos Buttler in IPL 2019?",
     options: ["Ravichandran Ashwin","Ravindra Jadeja","Sunil Narine","Yuzvendra Chahal"],
     correct : "Ravichandran Ashwin"
 },

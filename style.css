@@ -87,3 +87,30 @@ h3 {
     margin-top: 8px;
     margin-bottom: 14px;
 }
+#next-btn:hover
+{
+    background: #e6c200;
+}
+#score 
+{
+    color: #888;
+    font-size: 13px;
+    margin-top: 16px;
+}
+#result {
+    font-weight : bold;
+    padding: 20px 0;
+}
+#restart {
+    padding: 12px 32px;
+    background: #FFD700;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    text-align : center;
+    margin-left: 190px;
+}
